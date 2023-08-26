@@ -64,11 +64,6 @@ MainWindow::MainWindow(QMainWindow *parent)
     curhist=histnum;
     row0=0;
 
-    hdir="/usr/local/bin";   //For Linux, MacOSX
-
-//    hdir="/sdcard/KODS";     //For Android
-
-
 
     setupUi(this);
 
@@ -92,7 +87,7 @@ MainWindow::MainWindow(QMainWindow *parent)
 
     connect(table, SIGNAL(cellClicked(int,int)), this, SLOT(slot_lensInfo(int,int)));
 
-    proc->start(hdir+"/koko-cli"); //For Linux, MacOSXcmdline
+    proc->start("koko-cli"); //For Linux, MacOSXcmdline
 //    proc->start("/data/data/com.install.kods/lib/libkods.so");   //For Android
     proc->write("RTG ALL\n");
     ReadFileToTable(ldir+"/CURLENS/LENSTEXT.DAT");
